@@ -1,0 +1,18 @@
+import random
+import string
+
+def generate_password(length=12, use_digits=True, use_special_chars=True):
+    # Составляем список возможных символов
+    characters = string.ascii_letters  # Буквы (верхний и нижний регистр)
+    if use_digits:
+        characters += string.digits  # Добавляем цифры
+    if use_special_chars:
+        characters += string.punctuation  # Добавляем спецсимволы
+    
+    # Генерация случайного пароля
+    password = ''.join(random.choice(characters) for i in range(length))
+    return password
+
+# Пример использования
+password = generate_password(length=16, use_digits=True, use_special_chars=True)
+print("Сгенерированный пароль:", password)
